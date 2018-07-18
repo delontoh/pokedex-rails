@@ -1,0 +1,38 @@
+
+<h1>Welcome to Delon's Pokedex!</h1>
+
+<%= link_to 'Create New Pokemon', new_pokemon_path %><br><br>
+
+<table>
+	<tr>
+		<th>Num</th>
+		<th>Name</th>
+		<th>Image</th>
+		<th>Height</th>
+		<th>Weight</th>
+		<th>Candy</th>
+		<th>Candy Count</th>
+		<th>Egg</th>
+		<th>Avg Spawn</th>
+		<th>Spawn Time</th>
+	</tr>
+
+	<% @pokemonlist.each do |poke| %>
+		<tr>
+			<td><%= poke.num %></td>
+			<td><%= poke.name %></td>
+			<td><img src= <%= poke.img %>></td>
+			<td><%= poke.height %></td>
+			<td><%= poke.weight %></td>
+			<td><%= poke.candy %></td>
+			<td><%= poke.candy_count %></td>
+			<td><%= poke.egg %></td>
+			<td><%= poke.avg_spawns %></td>
+			<td><%= poke.spawn_time %></td>
+			<td><%= link_to 'Show', pokemon_path(poke) %></td>
+			<td><%= link_to 'Edit', edit_pokemon_path(poke) %></td>
+			<td><%= link_to 'Delete', pokemon_path(poke), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+		</tr>
+	<% end %>
+</table>
+
